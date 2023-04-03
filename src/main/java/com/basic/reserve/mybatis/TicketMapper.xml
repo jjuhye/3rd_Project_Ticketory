@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mapper.ticket">
+	<resultMap type="com.basic.reserve.vo.Ticket" id="ticket">
+	 <id property="id" column="id"/>
+  <result property="image" column="image"/>
+
+  <result property="contents" column="contents"/>
+  <result property="category" column="category"/>
+  <result property="title" column="title"/>	
+   
+   <result property="dateStart" column="dateStart"/>	
+   <result property="dateEnd" column="dateEnd"/>	
+   <result property="info" column="info"/>	
+     <result property="location" column="location"/>	
+      <result property="duration" column="duration"/>	
+      
+      <result property="seatNum" column="seatNum"/>	
+      <result property="price" column="price"/>	
+      <result property="discount" column="discount"/>	
+      <result property="star" column="star"/>	
+	</resultMap>
+	
+	  <select id="selectAllTicket" resultMap="ticket">
+  select * from ticket
+</select>
+	
+	<select id="selectiveTicket" parameterType="String" resultMap="ticket">
+  select * from ticket where title like CONCAT('%',#{title},'%')
+</select>
+
+	<select id="selectiveTicketbyId" parameterType="int" resultMap="ticket">
+  select * from ticket where id = #{id}
+</select>
+
+	
+	<select id="getNewShow" resultMap="ticket">
+	select * from ticket where Category ="공연" order by DateStart DESC LIMIT 3
+	</select>
+	
+	<select id="getNewSports" resultMap="ticket">
+	select * from ticket where Category ="스포츠" order by DateStart DESC LIMIT 3
+	</select>
+	
+	
+	<select id="getRankingShow" resultMap="ticket">
+	 select * from ticket where Category ="공연" order by Star DESC LIMIT 3
+	</select>
+	
+		<select id="getRankingSports" resultMap="ticket">
+	 select * from ticket where Category ="스포츠" order by Star DESC LIMIT 3
+	</select>
+	
+	<select id="getRankingmovie" resultMap="ticket" >
+	 select * from ticket where Category ="영화" order by Star DESC LIMIT 3
+	</select>
+	
+	<select id="getAscShow" resultMap="ticket" >
+	 select * from ticket where Category ="공연" order by dateStart
+	</select>
+	
+	<select id="getAscSports" resultMap="ticket" >
+	 select * from ticket where Category ="스포츠" order by dateStart
+	</select>
+
+	<insert id="addTicket" parameterType="ticket" >
+	 
+	 INSERT INTO ticket (image, contents, category, title, dateStart, dateEnd, info, location, duration, seatNum, price, discount, star)
+	VALUES
+	(       
+	    #{image},
+        #{contents},
+        #{category},
+        #{title},
+        #{dateStart},
+        #{dateEnd},
+        #{info},
+        #{location},
+        #{duration},
+        #{seatNum},
+        #{price},
+        #{discount},
+        #{star}
+        )
+	 
+	</insert>
+	
+	<delete id="deleteTicket" parameterType="int">
+	DELETE FROM ticket WHERE id = #{id}
+	</delete>
+	
+	<update id="updateTicket" parameterType="ticket"> 
+	update ticket
+	set title = #{title},dateStart = #{dateStart},dateEnd = #{dateEnd},star = #{star}
+	WHERE id = #{id}
+	</update>
+	
+	
+ 	<update id="updateTickets" parameterType="ticket"> 
+	update ticket set seatNum = #{seatNum} WHERE id = #{id}
+	</update> 
+	
+	 <update id="updateStars" parameterType="ticket"> 
+	update ticket set star = #{star} WHERE id = #{id}
+	</update> 
+	
+	
+	
+</mapper>
+  

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.member">
+	<resultMap type="com.basic.reserve.vo.Member" id="member">
+  <id property="id" column="id"/>
+  <result property="memberName" column="memberName"/>
+  <result property="memberId" column="memberId"/>
+  <result property="memberPw" column="memberPw"/>
+  <result property="memberHP" column="memberHP"/>
+  <result property="memberPoints" column="memberPoints"/>
+	</resultMap>
+
+  <select id="selectAllMembers" resultMap="member">
+  SELECT * FROM memberlist
+</select>
+
+ <select id="memberLogin" parameterType="member" resultType="String">
+   select memberId from memberlist where memberId=#{memberId} and memberPw=#{memberPw}       
+ </select>
+ 
+ <select id="idvaild" parameterType="member" resultType="String">
+ select memberId from memberlist where memberId=#{memberId}
+ </select>
+ 
+ <insert id="memberAccount" parameterType="member">
+ INSERT INTO memberlist(memberName, memberId, memberPw, memberHP, memberPoints)
+        VALUES (#{memberName},#{memberId},#{memberPw},#{memberHP},#{memberPoints})
+ </insert>
+
+<delete id="memberDelete" parameterType="String">
+  delete from memberlist where memberId = #{memberId} and memberPw = #{memberPw}
+</delete>
+
+<delete id="memberDeletebyID" parameterType="int">
+  delete from memberlist where id = #{id} 
+</delete>
+
+
+ <select id="selectOneMembers" parameterType="member" resultMap="member">
+   select * from memberlist where memberId=#{memberId}       
+ </select>
+ 
+  <select id="selectOneMembersbyId" parameterType="int" resultMap="member">
+   select * from memberlist where id=#{id}       
+ </select>
+
+
+     <update id="hpupdate" parameterType="member" >
+         update memberlist
+         set memberHP=#{memberHP} 
+         where memberId=#{memberId} 	 
+    </update>
+    
+       <update id="updatePw" parameterType="member" >
+         update memberlist
+         set memberPw=#{memberPw} 
+         where memberId=#{memberId} 	 
+    </update>
+    
+    
+    <update id="updatePoints" parameterType="member" >
+         update memberlist
+         set memberPoints=#{memberPoints} 
+         where id=#{id} 	 
+    </update>
+    
+
+
+</mapper>

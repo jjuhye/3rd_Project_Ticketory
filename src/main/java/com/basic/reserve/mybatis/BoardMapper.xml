@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.board">
+	<resultMap type="com.basic.reserve.vo.Board" id="board">
+		<id property="id" column="id" />
+		<result property="memberId" column="memberId" />
+		<result property="title" column="title" />
+		<result property="body" column="body" />
+		<result property="writedate" column="writedate" />
+	</resultMap>
+  
+    <select id="selectAllBoard" resultMap="board">
+  SELECT * FROM board
+</select>
+
+    <select id="selectSelectiveBoard" parameterType="String" resultMap="board">
+  SELECT * FROM board where memberId = #{memberId} order by writedate DESC
+</select>
+
+<update id="editBoard" parameterType="board" >
+         update board
+         set title=#{title} , body=#{body}
+         where id=#{id} 	 
+</update>
+
+
+
+
+	<delete id="deleteBoard" parameterType="int">
+	delete from board WHERE id=#{id}
+	</delete>
+	
+	
+	  <insert id="addBoard" parameterType="Board">
+	  INSERT INTO board(memberId, title, body, writedate)
+ 		VALUES (#{memberId},#{title},#{body},#{writedate})
+ 	</insert>
+ 
+	  <update id="updateBoard" parameterType="Board">update board set title=#{title}, body=#{body}, writedate=#{writedate} where id=#{id}</update>
+
+
+
+</mapper>
+  

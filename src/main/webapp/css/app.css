@@ -1,0 +1,280 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Noto+Sans+KR&display=swap');
+
+*{
+	margin:0;	padding:0;
+	color:#212529;
+	font-family: 'Dongle', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+a{text-decoration:none;}
+a.page{
+	background:#f9e7cb;
+	border-radius:50px;
+	color:black;
+	font-weight:bold;
+	padding:1px 6px;
+}
+
+.text-basic{color:#70685C; font-weight: bold;}
+.text-basic:hover{color:#efa635;}
+.text-basic:active{color:#efa635;}
+.text-R{color:#efa635;}
+.text-DR{color:#d2850c;}
+
+.btn-basic{
+	background-color:#efa635;
+	padding:5px 7px;
+	border-radius:5px;
+	color:white;
+	border:none;
+	}
+.btn-basic:hover{background:#d2850c;}
+
+.btn-disable{
+	background-color:#adb5bd;
+	padding:5px 7px;
+	border-radius:5px;
+	color:white;
+	border:none;
+	}
+.btn-cancel{
+	background-color:#d1cfcd;
+	padding:5px 7px;
+	border-radius:5px;
+	color:white;
+	border:none;
+	}
+.btn-cancel:hover{background:#6c757d ;}
+
+.btn-cancelD{
+	background-color:#d1cfcd;
+	padding:5px 7px;
+	border-radius:5px;
+	border:none;
+	font-weight:bold;
+	}
+.btn-cancelD:hover{background:#6c757d ;}
+
+.btn-lt-basic{
+	background-color:#f9e7cb;
+	padding:5px;
+	border-radius:5px 7px;
+	color:#efa635;
+	border:none;
+}
+.btn-lt-basic:hover{background:#efa635;color:white;}
+
+.btn-sm-basic{
+	background-color:#efa635;
+ 	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	color:white;
+	border:none;
+}
+.btn-sm-basic:hover{background:#d2850c;color:white;}
+
+.btn-ltsm-basic{
+	background-color:#f9e7cb;
+ 	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	color:#efa635;
+	border:none;
+}
+.btn-ltsm-basic:hover{background:#efa635;color:white;}
+
+.btn-sm-cancel{
+	background-color:#d1cfcd;
+	padding:2px 4px;
+ 	font-size:0.8rem;
+	border-radius:5px;
+	border:none;
+	}
+.btn-sm-cancel:hover{background:#6c757d ;}
+
+.btn-sm-blue{
+	background-color:#0080c0;
+ 	padding:2px 4px;
+ 	font-size:0.9rem;
+	border-radius:5px;
+	color:white;
+	font-weight:bold;
+	border:none;
+}
+
+.btn-sm-red{
+	background-color:#ff5b5b;
+ 	padding:2px 4px;
+ 	font-size:0.9rem;
+	border-radius:5px;
+	color:white;
+	font-weight:bold;
+	border:none;
+}
+
+.btn-sm-green{
+	background-color:#008040;
+ 	padding:2px 4px;
+ 	font-size:0.9rem;
+	border-radius:5px;
+	color:white;
+	font-weight:bold;
+	border:none;
+}
+
+.input-basic{
+	border:1px solid lightgray;
+	border-radius:5px;
+	color: #212529;
+	padding:2px 1px 2px 10px;
+}
+
+/* 네비게이션 */
+.logo{cursor:pointer; width:240px;}
+.topNv{font-size:0.9rem;}
+.md-nav{background-color: #f9e7cb; font-size:1.1rem;}
+#search{white-space : nowrap;}
+.nav_menu {padding:5px 20px; margin:0}
+ul li{list-style-type:none; display:inline-block; margin-right:20px;}
+
+/*진행중티켓 슬라이드*/
+img.card-img-top2{
+	/* size:100%; */
+	width:100%;
+	height:200px;
+	object-fit: cover;
+	object-position:top;
+	border-radius:5px}
+.ellipsis2 {
+	padding:5px 20px 5px 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+}
+
+input[type="radio"]{display:none;}
+
+.swiper-container{
+	display:block;
+	max-width:100%;
+	height:100%;
+	overflow-x:hidden;
+}
+
+.swiper-slide {width:1200px; height:100%;
+	padding:10px; margin:0 auto;}
+
+/*메인 랭킹*/
+.rank-card{border-radius:5px;}
+
+img.card-img-top{
+	width:100%;
+	height:330px;
+	object-fit: cover;
+	object-position:top;
+}
+img.card-img-top1{
+	width:100%;
+	height:330px;
+	object-fit: fill;
+	object-position:top;
+	border-radius:5px 5px 0 0;
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input[id*="tab"]+label {
+	display:inline-block; padding:10px 20px;
+	border-radius:10px 10px 0 0;
+	color:#efa635;
+	font-size:16px; cursor:pointer;
+	font-weight:bold;
+	border:solid #f9e7cb;
+	border-width:2px 2px 0px 2px;
+}
+input[id*="tab"]:checked+label {background:#f9e7cb;color:#000;}	
+.conbox {width:100%; height:100%; background:#f9e7cb;
+	padding:10px; margin:0 auto; display:none; border-radius:0 10px 0 0;}
+	
+input[id="tab1"]:checked ~ .con1 {display:block;}
+input[id="tab2"]:checked ~ .con2 {display:block;}
+input[id="tab3"]:checked ~ .con3 {display:block;}
+
+/* 티켓 상세페이지 */
+img.card-img-top3{
+	width:95%;
+	height:350px;
+	border-radius:10px;
+	object-fit: cover;
+	object-position:top;
+	display:block;
+	opacity:1;
+}
+img.card-img-top4{
+	width:95%;
+	max-height:350px;
+	border-radius:10px;
+	display:block;
+	opacity:1;
+}
+.img-text {
+	opacity:0;
+	position: absolute;
+	position:absolute;
+	border-radius: 100px;
+	padding:5px 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+ }
+ 
+ .imgBox:hover img{cursor:pointer; opacity:0.3;}
+ .imgBox:hover .img-text{opacity:1;}
+ .imgBox{position:relative;}
+
+/* 예매 페이지*/
+input[id="tab_r1"]:checked ~ .con_r1 {display:block;}
+input[id="tab_r2"]:checked ~ .con_r2 {display:block;}
+
+/* 변경버튼 클릭 */
+input[id*="md"]+label:hover{cursor:pointer;}
+
+div[class*="modi"]{display:none;}
+input[id="mdPw"]:checked ~ .modiPw {display:block;}
+input[id="mdHp"]:checked ~ .modiHp {display:block;}
+
+/* 예매화면 노출 */
+/* div[id="rsvPage"]{display:none;}
+input[id="reserve"]:checked ~ #rsvPage {display:block;}
+input[id="reserve"]:checked ~ #info {display:none;} */
+
+.cropping{max-height: 200px; overflow: hidden;}
+
+.cropping img{width : 400px;}
+
+/* 깜빡이는 글씨 blinking */
+.blinking{animation: blink 0.4s ease-in-out infinite alternate;}
+
+@keyframes blink{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.eventBox{
+	width:900px; height:100%;
+	border-radius:10px; cursor:pointer;
+	box-shadow: 0px 0px 10px 2px #000;
+}
+
+/* 빨간 취소선 */
+s {
+	color: gray;
+	text-decoration: line-through;
+}

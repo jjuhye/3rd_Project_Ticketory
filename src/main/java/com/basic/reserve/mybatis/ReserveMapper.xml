@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="mapper.reserve">
+ 	<resultMap type="com.basic.reserve.vo.Reserve" id="reserve">
+ 	<id property="id" column="id"/>
+ 	
+ 	<result property="id" column="id"/>
+ 	<result property="memberId" column="memberId"/>
+ 	<result property="reserveTitle" column="reserveTitle"/>
+ 	<result property="reserveDate" column="reserveDate"/>
+ 	<result property="reserveLocation" column="reserveLocation"/>
+ 	<result property="reserveSeatNum" column="reserveSeatNum"/>
+ 	<result property="reservePrice" column="reservePrice"/>
+ 	<result property="review" column="review"/>
+ 	
+ 	</resultMap>
+ 	
+ 
+ <select id="selectAllReserve" resultMap="reserve">
+ SELECT * from reservelist
+ </select>
+ 
+   <select id="selectiveReserve" resultMap="reserve" parameterType="String">
+ SELECT * from reservelist where memberId = #{memberId}
+ </select>
+ 
+  <select id="selectoneReservebyId" resultMap="reserve" parameterType="int">
+ SELECT * from reservelist where id = #{id}
+ </select>
+ 
+ 
+  <insert id="addReserve" parameterType="reserve">
+ INSERT INTO reservelist(memberId, reserveTitle, reserveDate, reserveLocation, reserveSeatNum, reservePrice)
+VALUES (#{memberId},#{reserveTitle},#{reserveDate},#{reserveLocation},#{reserveSeatNum},#{reservePrice})
+
+ </insert>
+ 
+ <delete id="reserveDelete" parameterType="int">
+  delete from reservelist where id = #{id}
+</delete>
+ 
+ <select id="getLastReserve" resultMap="reserve">
+ select * from reservelist order by id desc limit 1
+ </select>
+ 
+ <update id="updateReview" parameterType="int">
+ update reservelist set review=#{review} where id=#{id} 
+ </update>
+ 
+
+ 
+ </mapper>

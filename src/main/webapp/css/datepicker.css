@@ -1,0 +1,55 @@
+@charset "UTF-8";
+.datepicker {
+  background-color: #fff;
+  border:1px solid lightgray;
+}
+
+.datepicker-dropdown {
+  top: 0;
+  left: 0;
+}
+
+.datepicker table tr td.today, span.focused {
+  border-radius: 50% !important;
+}
+
+thead tr:nth-child(2) {
+  background-color: #FF80AB !important;
+}
+
+thead tr:nth-child(3) th {
+  color: #FF80AB !important;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.dow, .old-day, .day, .new-day {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 0px !important;
+}
+
+.old-day:hover, .day:hover, .new-day:hover, .month:hover, .year:hover, .decade:hover, .century:hover {
+  border-radius: 50% !important;
+  background-color: #eee;
+}
+
+.datepicker .active {
+  border-radius: 50% !important;
+  background-image: linear-gradient(#90CAF9, #64B5F6) !important;
+  color: #fff !important;
+}
+
+.prev, .next, .datepicker-switch {
+  border-radius: 0 !important;
+  padding: 20px 10px !important;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.8; 
+}
+
+.prev:hover, .next:hover, .datepicker-switch:hover {
+  background-color: inherit !important;
+  opacity: 1;
+}
